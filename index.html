@@ -50,6 +50,9 @@
     <script src="./js/bulma-carousel.min.js"></script>
     <script src="./js/bulma-slider.min.js"></script>
     <script src="./js/index.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -93,16 +96,16 @@
             </div>
         </div>
 
-        <!-- <div class="row justify-content-md-center" style="margin-top: 50px; margin-bottom: 50px;">
+        <div class="row justify-content-md-center" style="margin-top: 50px; margin-bottom: 50px;">
             <div class="col-md-2 text-center d-flex flex-column align-items-center">
-                <a href="https://arxiv.org/abs/2401.14673">
+                <a href="https://karthikmahadevan.ca/files/hri25-1122.pdf">
                     <div style="width: 60px; height: 60px;">
                         <img src="img/paper_small.png" style="object-fit: contain; width: 100%; height: 100%;">
                     </div>
                 </a>
                 <h4><strong>Paper</strong></h4>
             </div>
-        
+
             <div class="col-md-2 text-center d-flex flex-column align-items-center">
                 <a href="https://drive.google.com/file/d/1Ny07f0dpc0CJyyag3KTwfpHdv_-CSz_p/view?usp=sharing">
                     <div style="width: 60px; height: 60px;">
@@ -111,7 +114,16 @@
                 </a>
                 <h4><strong>Appendices</strong></h4>
             </div>
-        </div> -->
+
+            <div class="col-md-2 text-center d-flex flex-column align-items-center">
+                <a href="https://github.com/karthikm-0/imageinthat">
+                    <div style="width: 60px; height: 60px;">
+                        <img src="img/github.png" style="object-fit: contain; width: 100%; height: 100%;">
+                    </div>
+                </a>
+                <h4><strong>Code (will be added soon!)</strong></h4>
+            </div>
+        </div>
 
         <!-- <img src="img/pipeline.gif"> -->
 
@@ -122,13 +134,156 @@
                         <h2 class="title is-3">Abstract</h2>
                         <div class="content has-text-justified">
                             <p class="text-justify">
-                                Foundation models are rapidly improving the capability of robots in performing everyday tasks autonomously such as meal preparation, yet robots will still need to be instructed by humans due to model performance, the difficulty of capturing user preferences, and the need for user agency. Robots can be instructed using various methods---natural language conveys immediate instructions but can be abstract or ambiguous, whereas end-user programming supports longer-horizon tasks but interfaces face difficulties in capturing user intent. In this work, we propose using direct manipulation of images as an alternative paradigm to instruct robots, and introduce a specific instantiation called ImageInThat which allows users to perform direct manipulation on images in a timeline-style interface to generate robot instructions. Through a user study, we demonstrate the efficacy of ImageInThat to instruct robots in kitchen manipulation tasks, comparing it to a text-based natural language instruction method. The results show that participants were faster with \projname and preferred to use it over the text-based method. Supplementary material including code can be found at: https://image-in-that.github.io/.
+                                Foundation models are rapidly improving the capability of robots in performing everyday
+                                tasks autonomously such as meal preparation, yet robots will still need to be instructed
+                                by humans due to model performance, the difficulty of capturing user preferences, and
+                                the need for user agency. Robots can be instructed using various methods&mdash;natural
+                                language conveys immediate instructions but can be abstract or ambiguous, whereas
+                                end-user programming supports longer-horizon tasks but interfaces face difficulties in
+                                capturing user intent. In this work, we propose using direct manipulation of images as
+                                an alternative paradigm to instruct robots, and introduce a specific instantiation
+                                called ImageInThat which allows users to perform direct manipulation on images in a
+                                timeline-style interface to generate robot instructions. Through a user study, we
+                                demonstrate the efficacy of ImageInThat to instruct robots in kitchen manipulation
+                                tasks, comparing it to a text-based natural language instruction method. The results
+                                show that participants were faster with ImageInThat and preferred to use it over the
+                                text-based method.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section class="section">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-four-fifths">
+                        <h2 class="title is-3">Interface</h2>
+                        <div class="content has-text-justified">
+                            <p class="text-justify">
+                                In ImageInThat, the robot's environment is processed to create an internal
+                                representation consisting of knowledge about objects and
+                                fixtures. Objects are items that can be manipulated from one
+                                location to another (e.g., bowls that need washing) whereas
+                                fixtures are items that are immovable. Both objects and fixtures
+                                can be in more than one state; for example, a cabinet is a
+                                fixture that can be open or closed.
+
+                                ImageInThat includes an editor that utilizes this internal
+                                representation. The editor consists of a timeline-style interface
+                                where users can manipulate images to generate robot instructions.
+                                For instance, users can drag an object from one location to another
+                                to generate a pick-and-place instruction. Users can also manipulate
+                                fixture states, such as by clicking a cabinet to open or close it.
+                                Along the way, each change appears as a step in the timeline.
+                                ImageInThat also includes features to visualize changes between steps
+                                inside the timeline. This includes visual filters on each step to
+                                highlight changes, and a comparison view that shows the differences
+                                between two steps.
+
+                                ImageInThat also includes experimental features to allows users to
+                                blend language with image to create instructions rather than relying
+                                solely on image manipulation. ImageInThat can also provide some assistance
+                                to the user in specifying the location of a selected object through
+                                manipulation-level auto-completion. Or, the user can click a button to
+                                request an image representing possible future states of the environment.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns is-centered">
+                    <div class="column is-four-fifths">
+                        <figure style="text-align:center;">
+                            <img src="img/approach.png" width="100%" height="100%">
+                            <figcaption style="text-align:justify; font-weight:bold; color:#333; margin-top:10px;">
+                                ImageInThat’s user interface, consisting of an editor (top) and a
+                                timeline (bottom). The editor (A) allows users to manipulate objects and
+                                fixtures in the environment, while the timeline displays the current state of the
+                                environment and the desired changes. The timeline (B) shows all instructions
+                                provided to the robot. Selecting a step populates it in the editor. Changes
+                                between steps are made visible by contrasting changed objects and fixtures
+                                from other items (C). ImageInThat automatically captions all manipulations
+                                and allows them to be edited (D). The user can instruct the robot with text to
+                                generate new steps automatically (E). ImageInThat tries to predict user goals
+                                such as by proposing locations where objects can be placed (F) or proposing
+                                future steps (G).
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="columns is-centered">
+                    <div class="column is-four-fifths">
+                        <video width="100%" height="auto" controls>
+                            <source src="img/image_in_that_video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-four-fifths">
+                        <h2 class="title is-3">User Evaluation</h2>
+                        <div class="content has-text-justified">
+                            <p class="text-justify">
+                                We evaluated ImageInThat in a user study where participants were asked to instruct a
+                                robot in simulated kitchen manipulation tasks. Participants were asked to perform
+                                the tasks using both ImageInThat and a text-based natural language instruction
+                                baseline.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns is-centered">
+                    <div class="column is-four-fifths">
+                        <figure style="text-align:center;">
+                            <img src="img/tasks.png" width="100%" height="100%">
+                            <figcaption style="text-align:justify; font-weight:bold; color:#333; margin-top:10px;">
+                                Tasks performed by participants in the evaluation (left to right):
+                                organizing pantry, sorting fruits, cooking stir-fry, and washing dishes.
+                                Depicted here is the environment state at the beginning of each task.
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-four-fifths">
+                        <div class="content has-text-justified">
+                            <p class="text-justify">
+                                We found that participants were faster with ImageInThat than with the text-based
+                                method across all tasks. However, we noticed that participants made different
+                                types of errors with ImageInThat compared to the text-based method. For instance,
+                                participants added extraneous steps in ImageInThat, which could be due to the
+                                low-cost nature of adding steps in ImageInThat. In contrast, participants missed
+                                more steps in the text-based method, which could be due to the difficulty in
+                                keeping track of the steps in the text-based method.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns is-centered">
+                    <div class="column is-four-fifths">
+                        <figure style="text-align:center;">
+                            <img src="img/results.png" width="100%" height="100%">
+                            <figcaption style="text-align:justify; font-weight:bold; color:#333; margin-top:10px;">
+                                Left: a plot showing the number of errors for ImageInThat and the
+                                text-based method. Errors are grouped into three categories: extraneous steps,
+                                missing steps, and inefficient steps, and a bar displays the total count of all
+                                errors. Middle: shows the task completion time per task and all tasks together.
+                                All error bars are bootstrapped 95% confidence intervals. Right: shows counts
+                                of responses for the NASA-TLX questionnaire.
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <!-- <p style="text-align:center;">
             <img src="img/cover.png" width="60%" height="60%">
